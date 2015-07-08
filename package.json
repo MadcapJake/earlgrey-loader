@@ -11,7 +11,6 @@
   "author": "Jake Russo",
   "license": "MIT",
   "devDependencies": {
-    "earlgrey-runtime": "0.0.9",
     "fly-earl": "^0.2.1"
   },
   "engines": {
