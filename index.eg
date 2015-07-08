@@ -18,12 +18,11 @@ module.exports = source ->
       delete query.runtime
       for opt in query:
          opts.parameters[opt] = query[opt]
-      opts = opts &
       result = eg.Generator(opts).generate(eg.Source{source})
    catch e: throw e
    if result.map:
       map = JSON.parse(result.map)
-      map.sourcesContent = [source]
+      map.sourcesContent = {source}
       this.callback(null, result.code, map)
    else:
       this.callback(null, result.code, null)

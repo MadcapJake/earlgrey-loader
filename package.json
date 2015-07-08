@@ -8,7 +8,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepublish": "npm run fly",
-    "fly": "PATH=/home/jrusso/.nvm/versions/io.js/v2.3.1/bin fly"
+    "fly": "fly"
   },
   "author": {
     "name": "Jake Russo",
