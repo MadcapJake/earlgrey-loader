@@ -1,0 +1,21 @@
+{
+  "name": "earlgrey-loader",
+  "version": "0.0.1",
+  "description": "Earl Grey loader module for webpack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "preinstall": "npm run fly",
+    "fly": "PATH=/home/jrusso/.nvm/versions/io.js/v2.3.1/bin fly"
+  },
+  "author": "Jake Russo",
+  "license": "MIT",
+  "devDependencies": {
+    "earlgrey-runtime": "0.0.9",
+    "fly-earl": "^0.2.1"
+  },
+  "engines": {
+    "node": ">= 0.11.16",
+    "iojs": ">= 1.0.0"
+  }
+}
