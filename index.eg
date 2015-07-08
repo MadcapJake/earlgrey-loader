@@ -18,7 +18,6 @@ module.exports = source ->
       delete query.runtime
       for opt in query:
          opts.parameters[opt] = query[opt]
-      print opts.parameters.bananas
       opts = opts &
       result = eg.Generator(opts).generate(eg.Source{source})
    catch e: throw e
