@@ -2,14 +2,19 @@
   "name": "earlgrey-loader",
   "version": "0.1.0",
   "description": "Earl Grey loader module for webpack",
+  "license": "MIT",
+  "repository": "github:MadcapJake/earlgrey-loader",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepublish": "npm run fly",
     "fly": "PATH=/home/jrusso/.nvm/versions/io.js/v2.3.1/bin fly"
   },
-  "author": "Jake Russo",
-  "license": "MIT",
+  "author": {
+    "name": "Jake Russo",
+    "email": "madcap.russo@gmail.com",
+    "url": "http://github.com/MadcapJake"
+  },
   "devDependencies": {
     "fly-earl": "^0.2.1"
   },
@@ -17,6 +22,10 @@
     "node": ">= 0.11.16",
     "iojs": ">= 1.0.0"
   },
+  "keywords": [
+    "earlgrey",
+    "fly"
+  ],
   "dependencies": {
     "earlgrey": "0.0.9",
     "loader-utils": "^0.2.10"
