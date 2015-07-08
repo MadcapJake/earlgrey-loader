@@ -4,17 +4,22 @@ require:
 
 module.exports = source ->
    if this.cacheable: this.cacheable()
-   earl-request = utils.getRemainingRequest(this)
-   js-request   = utils.getCurrentRequest(this)
-   query        = utils.parseQuery(this.query)
+   var query    = utils.parseQuery(this.query)
    var result   = undefined
    try:
       var opts = {
-         es5 = query.es5 or false
-         sourceMaps = query.sourceMaps or null
-         runtime = query.runtime or "earlgrey-runtime"
+         es5        = query.es5
+         sourceMaps = query.sourceMaps
+         runtime    = query.runtime
+         parameters = {=}
       }
-      if query.params: opts = opts & parse-params(query.params)
+      delete query.es5
+      delete query.sourceMaps
+      delete query.runtime
+      for opt in query:
+         opts.parameters[opt] = query[opt]
+      print opts.parameters.bananas
+      opts = opts &
       result = eg.Generator(opts).generate(eg.Source{source})
    catch e: throw e
    if result.map:
@@ -23,6 +28,3 @@ module.exports = source ->
       this.callback(null, result.code, map)
    else:
       this.callback(null, result.code, null)
-
-;; TODO: Implement function
-parse-params = params -> pass
