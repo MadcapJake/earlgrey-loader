@@ -1,6 +1,6 @@
-provide: main, clear, eg
+provide: default, clear, eg
 
-main = *->
+default = *->
    yield this.tasks.clear()
    yield this.tasks.eg()
 
