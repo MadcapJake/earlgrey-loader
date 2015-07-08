@@ -24,7 +24,7 @@
   },
   "keywords": [
     "earlgrey",
-    "fly"
+    "webpack"
   ],
   "dependencies": {
     "earlgrey": "0.0.9",
