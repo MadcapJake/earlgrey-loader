@@ -23,4 +23,4 @@ module.exports = source ->
    catch e: throw e
 
    result.map.sources-content = {source}
-   this.callback(null, result.code, map)
+   this.callback(null, result.code, result.map)
