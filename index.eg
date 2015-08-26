@@ -9,18 +9,18 @@ module.exports = source ->
    try:
       var opts = {
          es5        = query.es5
-         sourceMaps = query.sourceMaps
+         source-map = query.source-map
          runtime    = query.runtime
          parameters = {=}
       }
       delete query.es5
-      delete query.sourceMaps
+      delete query.source-map
       delete query.runtime
-      for opt in query:
-         opts.parameters[opt] = query[opt]
+      for opt in query: opts.parameters[opt] = query[opt]
       result = eg.Generator(opts).generate(src) where
          src = eg.Source(source, this.resource-path)
    catch e: throw e
 
-   result.map.sources-content = {source}
-   this.callback(null, result.code, result.map)
+   this.callback(null, result.code, map) where map = ({=} & result.map) & {
+      sources-content = {source}
+   }
