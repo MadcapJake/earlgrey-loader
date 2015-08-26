@@ -2,25 +2,24 @@ require:
    earlgrey as eg
    loader-utils as utils
 
+transpile = (src, query, path) ->
+   var opts = {
+      es5        = query.es5
+      source-map = query.source-map
+      runtime    = query.runtime
+      parameters = {=}
+   }
+   delete query.es5
+   delete query.source-map
+   delete query.runtime
+   for opt in query: opts.parameters[opt] = query[opt]
+   eg.Generator(opts).generate(eg.Source(src, path))
+
 module.exports = source ->
    if this.cacheable: this.cacheable()
-   let query    = utils.parseQuery(this.query)
-   var result   = undefined
-   try:
-      var opts = {
-         es5        = query.es5
-         source-map = query.source-map
-         runtime    = query.runtime
-         parameters = {=}
-      }
-      delete query.es5
-      delete query.source-map
-      delete query.runtime
-      for opt in query: opts.parameters[opt] = query[opt]
-      result = eg.Generator(opts).generate(src) where
-         src = eg.Source(source, this.resource-path)
-   catch e: throw e
-
-   this.callback(null, result.code, map) where map = ({=} & result.map) & {
-      sources-content = {source}
-   }
+   result = transpile(source, utils.parseQuery(this.query), this.resource-path)
+   if result.map:
+      this.callback(null, result.code, map) where map =
+         JSON.parse(result.map) & { sources-content = {source} }
+   else:
+      this.callback(null, result.code, null)
