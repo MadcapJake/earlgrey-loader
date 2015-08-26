@@ -7,16 +7,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublish": "npm run fly",
-    "fly": "fly"
+    "preversion": "earl compile -5rvso index.js index.eg"
   },
   "author": {
     "name": "Jake Russo",
     "email": "madcap.russo@gmail.com",
     "url": "http://github.com/MadcapJake"
-  },
-  "devDependencies": {
-    "fly-earl": "^0.2.1"
   },
   "engines": {
     "node": ">= 0.11.16",
