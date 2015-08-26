@@ -22,6 +22,5 @@ module.exports = source ->
          src = eg.Source(source, this.resource-path)
    catch e: throw e
 
-   map = JSON.parse(result.map)
-   map.sources-content = {source}
+   result.map.sources-content = {source}
    this.callback(null, result.code, map)
