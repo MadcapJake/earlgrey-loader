@@ -1,6 +1,6 @@
 {
   "name": "earlgrey-loader",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Earl Grey loader module for webpack",
   "license": "MIT",
   "repository": "github:MadcapJake/earlgrey-loader",
